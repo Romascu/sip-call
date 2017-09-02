@@ -1,4 +1,4 @@
-#License notice
+# License notice
 
 Based on Linphone UWP Client (and associated SDK) (link contains original source and build/install instructions) https://github.com/BelledonneCommunications/linphone-windows10
 

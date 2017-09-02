@@ -42,8 +42,8 @@ namespace Linphone.Views {
         private DateTimeOffset startTime;
 
         InterstitialAd myInterstitialAd = null;
-        string myAppId = "9mvqcx737sr4";
-        string myAdUnitId = "11699561";
+        string myAppId = "d25517cb-12d4-4699-8bdc-52040c712cab";
+        string myAdUnitId = "test";
 
         private bool statsVisible = false;
 
