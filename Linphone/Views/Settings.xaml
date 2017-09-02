@@ -22,6 +22,23 @@
 
 
         <ListView Grid.Row="1">
+            <ListViewItem Tapped="make_account_Click_1" >
+                <StackPanel Orientation="Vertical"  Margin="0,12,0,0">
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource ListItemHeaderStyle}"
+                        x:Uid="MakeAccountMenu"
+                        Text="Make a free SIP account - the other person must also download the app and make an account"
+                        />
+
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource ListItemStyle}"
+                        x:Uid="MakeAccountMenuSubtitle"
+                        Text="The other person must have a SIP account too and also download the app"/>
+                </StackPanel>
+            </ListViewItem>
+            
             <ListViewItem Tapped="account_Click_1" >
                 <StackPanel Orientation="Vertical"  Margin="0,12,0,0">
                     <TextBlock

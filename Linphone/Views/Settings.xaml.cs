@@ -22,6 +22,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
+
 namespace Linphone.Views {
     /// <summary>
     /// Base setting page, provides access to each detailled settings + debug setting.
@@ -34,6 +35,8 @@ namespace Linphone.Views {
         public Settings() {
             this.InitializeComponent();
             SystemNavigationManager.GetForCurrentView().BackRequested += back_Click;
+
+
         }
 
         /// <summary>
@@ -41,6 +44,35 @@ namespace Linphone.Views {
         /// </summary>
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
+        }
+
+        private void make_account_Click_1(object sender, RoutedEventArgs e)
+        {
+            // The URI to launch
+            string uriToLaunch = @"https://mdns.sipthor.net/register_sip_account.phtml";
+
+            // Create a Uri object from a URI string 
+            var uri = new Uri(uriToLaunch);
+
+            // Launch the URI
+            async void DefaultLaunch()
+            {
+                // Launch the URI
+                var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+
+                if (success)
+                {
+                    // URI launched
+                }
+                else
+                {
+                    // URI launch failed
+                }
+
+            }
+
+            DefaultLaunch();
+
         }
 
         private void account_Click_1(object sender, RoutedEventArgs e) {
@@ -68,6 +100,11 @@ namespace Linphone.Views {
                 e.Handled = true;
                 Frame.GoBack();
             }
+        }
+
+        private void TextBlock_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+
         }
     }
 }

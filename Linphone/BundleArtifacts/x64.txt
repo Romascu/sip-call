@@ -1,0 +1,6 @@
+MainPackage=C:\Users\RandomSSD\Downloads\linphone-windows10\Linphone\bin\x64\Debug\Linphone_1.5.0.0_x64_Debug.appx
+SymbolPackage=C:\Users\RandomSSD\Downloads\linphone-windows10\Linphone\AppPackages\Linphone_1.5.0.0_Debug_Test\Linphone_1.5.0.0_x64_Debug.appxsym
+ResourcePack=C:\Users\RandomSSD\Downloads\linphone-windows10\Linphone\bin\x64\Debug\Linphone_1.5.0.0_scale-100.appx
+ResourcePack=C:\Users\RandomSSD\Downloads\linphone-windows10\Linphone\bin\x64\Debug\Linphone_1.5.0.0_scale-125.appx
+ResourcePack=C:\Users\RandomSSD\Downloads\linphone-windows10\Linphone\bin\x64\Debug\Linphone_1.5.0.0_scale-150.appx
+ResourcePack=C:\Users\RandomSSD\Downloads\linphone-windows10\Linphone\bin\x64\Debug\Linphone_1.5.0.0_scale-400.appx

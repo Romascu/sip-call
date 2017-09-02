@@ -32,12 +32,18 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Advertising.WinRT.UI;
+using System.Diagnostics;
 
 namespace Linphone.Views {
     public partial class InCall : Page {
         private DispatcherTimer oneSecondTimer;
         private Timer fadeTimer;
         private DateTimeOffset startTime;
+
+        InterstitialAd myInterstitialAd = null;
+        string myAppId = "9mvqcx737sr4";
+        string myAdUnitId = "11699561";
 
         private bool statsVisible = false;
 
@@ -77,6 +83,14 @@ namespace Linphone.Views {
             buttons.VideoClick += buttons_VideoClick;
             buttons.BluetoothClick += buttons_BluetoothClick;
             buttons.DialpadClick += buttons_DialpadClick;
+
+            myInterstitialAd = new InterstitialAd();
+            myInterstitialAd.AdReady += MyInterstitialAd_AdReady;
+            myInterstitialAd.ErrorOccurred += MyInterstitialAd_ErrorOccurred;
+            myInterstitialAd.Completed += MyInterstitialAd_Completed;
+            myInterstitialAd.Cancelled += MyInterstitialAd_Cancelled;
+
+            myInterstitialAd.RequestAd(AdType.Display, myAppId, myAdUnitId);
         }
 
         #region Buttons
@@ -135,6 +149,13 @@ namespace Linphone.Views {
 
         private void buttons_HangUpClick(object sender) {
             LinphoneManager.Instance.EndCurrentCall();
+
+            if (InterstitialAdState.Ready == myInterstitialAd.State)
+            {
+                myInterstitialAd.Show();
+                myInterstitialAd.RequestAd(AdType.Display, myAppId, myAdUnitId);
+
+            }
         }
         #endregion
 
@@ -596,5 +617,34 @@ namespace Linphone.Views {
                 }
             }
         }
+
+        void MyInterstitialAd_AdReady(object sender, object e)
+        {
+            // Your code goes here.
+            Debug.WriteLine("Ad is ready");
+
+        }
+
+        void MyInterstitialAd_ErrorOccurred(object sender, AdErrorEventArgs e)
+        {
+            // Your code goes here.
+            Debug.WriteLine("Ad load error");
+
+        }
+
+        void MyInterstitialAd_Completed(object sender, object e)
+        {
+            // Your code goes here.
+            Debug.WriteLine("Ad completed");
+
+        }
+
+        void MyInterstitialAd_Cancelled(object sender, object e)
+        {
+            // Your code goes here.
+            Debug.WriteLine("Ad canceled");
+
+        }
+
     }
 }

@@ -33,6 +33,7 @@ using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
 using Windows.System.Threading;
 using Linphone.Views;
+using System.Runtime.InteropServices;
 
 namespace Linphone.Model {
     class LinphoneManager{

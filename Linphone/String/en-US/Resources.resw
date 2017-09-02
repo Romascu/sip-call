@@ -271,7 +271,7 @@ and cc-by-nd from https://github.com/Templarian/WindowsIcons</value>
     <value>Network</value>
   </data>
   <data name="AccountMenu.Text" xml:space="preserve">
-    <value>SIP account</value>
+    <value>Sign-in to use (with SIP account)</value>
   </data>
   <data name="SIPDomain.Text" xml:space="preserve">
     <value>Domain</value>
@@ -750,5 +750,25 @@ To enjoy the best experience with Linphone WP8, we recommend that you use the SI
   </data>
   <data name="DeleteChat.Text" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="NewAboutText.Text" xml:space="preserve">
+    <value>
+License notice: based on Linphone UWP Client (and associated SDK) (link contains original source and build/install instructions)
+https://github.com/BelledonneCommunications/linphone-windows10
+
+Copyright (c) 2010-present Belledonne Communications
+(http://www.belledonne-communications.com, linphone.org)
+
+Published under the GNU General Public License v2:
+https://github.com/Romascu/sip-call/blob/master/COPYING
+
+App source code: https://github.com/Romascu/sip-call
+
+This app is intended as a custom version of the above app (a fork), at this time contains the following changes:
+added short instructions and link to a free SIP service (not linphone related), 
+also project config changes (using debug config momentarily, could not get release variant to work with VS 2017), 
+updated About section with license/copyright info, other misc changes.
+
+The source code included here (this present fork) is under the same license as the original&lt;LineBreak/&gt; and made available under the same conditions.</value>
   </data>
 </root>

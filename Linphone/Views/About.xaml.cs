@@ -25,8 +25,8 @@ namespace Linphone.Views {
             this.InitializeComponent();
 
             var packageId = Windows.ApplicationModel.Package.Current.Id;
-            AppVersion.Text = string.Format("{0}.{1}.{2}", packageId.Version.Major, packageId.Version.Minor, packageId.Version.Build);
-            CoreVersion.Text = LinphoneManager.Instance.getCoreVersion();
+            //AppVersion.Text = string.Format("{0}.{1}.{2}", packageId.Version.Major, packageId.Version.Minor, packageId.Version.Build);
+            //CoreVersion.Text = LinphoneManager.Instance.getCoreVersion();
 
             // Parse the text to insert clickable links when a line start with http://
             // And replace #version# tag by actual version name
@@ -55,6 +55,11 @@ namespace Linphone.Views {
                  }
              }
              AboutText.Blocks.Add(paragraph);*/
+        }
+
+        private void TextBlock_SelectionChanged(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -23,10 +23,16 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
 using System.ComponentModel;
 using System.Collections.Generic;
+using Microsoft.Advertising.WinRT.UI;
+using System.Diagnostics;
 
 namespace Linphone.Views {
 
     public sealed partial class Dialer : Page, INotifyPropertyChanged {
+
+        InterstitialAd myInterstitialAd = null;
+        string myAppId = "9mvqcx737sr4";
+        string myAdUnitId = "11699561";
 
         public Dialer() {
             this.InitializeComponent();
@@ -37,6 +43,14 @@ namespace Linphone.Views {
                     call_Click(null, null);
                 }
             };
+
+            myInterstitialAd = new InterstitialAd();
+            myInterstitialAd.AdReady += MyInterstitialAd_AdReady;
+            myInterstitialAd.ErrorOccurred += MyInterstitialAd_ErrorOccurred;
+            myInterstitialAd.Completed += MyInterstitialAd_Completed;
+            myInterstitialAd.Cancelled += MyInterstitialAd_Cancelled;
+
+            myInterstitialAd.RequestAd(AdType.Display, myAppId, myAdUnitId);
         }
 
         private int unreadMessageCount;
@@ -189,6 +203,13 @@ namespace Linphone.Views {
                 string lastDialedNumber = LinphoneManager.Instance.GetLastCalledNumber();
                 addressBox.Text = lastDialedNumber == null ? "" : lastDialedNumber;
             }
+
+            if (InterstitialAdState.Ready == myInterstitialAd.State)
+            {
+                myInterstitialAd.Show();
+                myInterstitialAd.RequestAd(AdType.Display, myAppId, myAdUnitId);
+
+            }
         }
 
         private void numpad_Click(object sender, RoutedEventArgs e) {
@@ -211,6 +232,13 @@ namespace Linphone.Views {
 
         private void chat_Click(object sender, RoutedEventArgs e) {
             Frame.Navigate(typeof(Views.Chats), null);
+
+            if (InterstitialAdState.Ready == myInterstitialAd.State)
+            {
+                myInterstitialAd.Show();
+                myInterstitialAd.RequestAd(AdType.Display, myAppId, myAdUnitId);
+
+            }
         }
 
         private void history_Click(object sender, RoutedEventArgs e) {
@@ -219,10 +247,24 @@ namespace Linphone.Views {
 
         private void contacts_Click(object sender, RoutedEventArgs e) {
             Frame.Navigate(typeof(Views.ContactList), null);
+
+            if (InterstitialAdState.Ready == myInterstitialAd.State)
+            {
+                myInterstitialAd.Show();
+                myInterstitialAd.RequestAd(AdType.Display, myAppId, myAdUnitId);
+
+            }
         }
 
         private void settings_Click(object sender, RoutedEventArgs e) {
             Frame.Navigate(typeof(Views.Settings), null);
+
+            if (InterstitialAdState.Ready == myInterstitialAd.State)
+            {
+                myInterstitialAd.Show();
+                myInterstitialAd.RequestAd(AdType.Display, myAppId, myAdUnitId);
+
+            }
         }
 
         private void about_Click(object sender, RoutedEventArgs e) {
@@ -231,6 +273,8 @@ namespace Linphone.Views {
 
         private void disconnect_Click(object sender, RoutedEventArgs e) {
             EnableRegister(false);
+
+
         }
 
         private void connect_Click(object sender, EventArgs e) {
@@ -249,6 +293,34 @@ namespace Linphone.Views {
 
         private void status_Tapped(object sender, TappedRoutedEventArgs e) {
             LinphoneManager.Instance.Core.RefreshRegisters();
+        }
+
+        void MyInterstitialAd_AdReady(object sender, object e)
+        {
+            // Your code goes here.
+            Debug.WriteLine("Ad is ready");
+
+        }
+
+        void MyInterstitialAd_ErrorOccurred(object sender, AdErrorEventArgs e)
+        {
+            // Your code goes here.
+            Debug.WriteLine("Ad load error");
+
+        }
+
+        void MyInterstitialAd_Completed(object sender, object e)
+        {
+            // Your code goes here.
+            Debug.WriteLine("Ad completed");
+
+        }
+
+        void MyInterstitialAd_Cancelled(object sender, object e)
+        {
+            // Your code goes here.
+            Debug.WriteLine("Ad canceled");
+
         }
     }
 }
