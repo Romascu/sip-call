@@ -4,7 +4,7 @@ Based on Linphone UWP Client (and associated SDK) (link contains original source
 
 Copyright (c) 2010-present Belledonne Communications 
 
-Published under the GNU General Public License v3 https://github.com/Romascu/sip-call/blob/master/COPYING
+Published under the GNU General Public License v3 https://github.com/Romascu/sip-call/blob/master/COPYING.txt
 
 This app is intended as a custom version of the above app (a fork), at this time contains the following changes: added short instructions and link to a free SIP service (not linphone related), also project config changes (using debug config momentarily, could not get release variant to work with VS 2017), updated About section with license/copyright info and other misc changes.
 
