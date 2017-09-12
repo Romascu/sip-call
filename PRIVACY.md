@@ -23,6 +23,7 @@ the application itself only stores this information locally (while installed) in
 The application does not sell, trade or otherwise transfer to outside parties your personally identifiable information or all type of content that you may upload/send using the application (e.g: text conversations, calls, videos, photos; etc).
 
 #Communication service provider
+
 As mentioned, the application itself is merely an interface that facilitates transmission between you, the user and your chosen service for communication so please be sure to read the privacy policy of your chosen service provider, in the case of sip2sip their privacy-friendly policy can be read here:
 http://sip2sip.info/privacy/
 
